@@ -49,6 +49,9 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+
+
+
     
     
     //IEnumerator NextDialogue() {
