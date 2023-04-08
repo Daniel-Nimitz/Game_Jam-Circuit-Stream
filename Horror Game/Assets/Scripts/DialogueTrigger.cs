@@ -6,9 +6,6 @@ using TMPro;
 public class DialogueTrigger : MonoBehaviour
 {
     public GameObject playerCharacter;
-
-
-
     public TMP_Text dialogueText;
 
     public string[] dialogueToSay;
@@ -16,6 +13,8 @@ public class DialogueTrigger : MonoBehaviour
     private float distanceToPlayer;
 
     public float startingDialogueDistance = 40;
+
+    public int dialogueIndex;
 
 
     private void Awake()
@@ -27,24 +26,43 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         distanceToPlayer = Vector3.Distance(this.gameObject.transform.position, playerCharacter.transform.position);
-        if (distanceToPlayer <  startingDialogueDistance) {
+        CheckDialogueStatus();
+
+        //if (dialogueIndex <= dialogueToSay.Length) {
+        //    dialogueIndex++;
+         //   CheckDialogueStatus();
+        //}
+    }
+
+    private void CheckDialogueStatus()
+    {
+        if (distanceToPlayer < startingDialogueDistance)
+        {
+            dialogueText.text = dialogueToSay[dialogueIndex];
             dialogueText.gameObject.SetActive(true);
+
+        }
+        if (distanceToPlayer > startingDialogueDistance)
+        {
+            dialogueText.gameObject.SetActive(false);
             dialogueText.text = dialogueToSay[0];
         }
     }
 
     
     
+    //IEnumerator NextDialogue() {
+        //if (dialogueToSay[dialogueIndex] == null) {
+        //return;
 
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("collision happened with trigger");
-        dialogueText.gameObject.SetActive(true);
-        dialogueText.text = dialogueToSay[0];
-        
-    }
+        //}
+        //CheckDialogueStatus();
+      //  yield return new WaitForSeconds(3f);
+        //dialogueIndex++;
+    //}
     //Use coroutines to say each text one at a time
-    //Make if statement to check only for player
+
+
+    //Rotate the text
+
 }
