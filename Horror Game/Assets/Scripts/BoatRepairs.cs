@@ -5,30 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class BoatRepairs : MonoBehaviour
 {
-    public string sceneNameToLoad;
+
     public bool hasGas;
     public bool hasCompass;
-    public bool hasLifeJacket;
+    public bool hasEngine;
     public string winSceneToLoad;
+
+
+    public GameObject engineOnBoat;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Gas"))
         {
             hasGas = true;
+            Debug.Log("Gas Can Ran into Boat Trigger");
         }
-        else if (other.CompareTag("Compass")) {
+        if (other.CompareTag("Compass")) {
             hasCompass = true;
+            Debug.Log("Compass Ran Into Boat Trigger");
         }
-        else if(other.CompareTag("Life Jacket")) {
-            hasLifeJacket = true;
-        }
-        else {
-            Debug.Log("Object has hit boat trigger but is not recognized as a needed boat componant.");
-        }
+        if(other.CompareTag("Engine")) {
+            hasEngine = true;
+            engineOnBoat.SetActive(true);
+            Debug.Log("Engine Ran into Boat Trigger");
 
-        if (hasGas && hasCompass && hasLifeJacket) {
-            SceneManager.LoadScene(winSceneToLoad);
+        }
         
+
+        if (hasGas && hasCompass && hasEngine) {
+            SceneManager.LoadScene(winSceneToLoad);
         }
 
     }
