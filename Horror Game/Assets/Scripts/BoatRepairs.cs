@@ -14,6 +14,8 @@ public class BoatRepairs : MonoBehaviour
 
     public GameObject engineOnBoat;
     public Animator boatPropellerAnimator;
+    public AudioSource boatEngineSource;
+    public AudioClip boatEngineSoundClip;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Gas"))
@@ -21,6 +23,7 @@ public class BoatRepairs : MonoBehaviour
             hasGas = true;
             Destroy(other.gameObject);
             boatPropellerAnimator.enabled = true;
+            boatEngineSource.PlayOneShot(boatEngineSoundClip);
             Debug.Log("Gas Can Ran into Boat Trigger");
         }
         if (other.CompareTag("Compass")) {
