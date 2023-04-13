@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6884181089752675181}
   - component: {fileID: 6884181089752675183}
   - component: {fileID: 6884181089752675182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6884181090839310880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Attachment Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 6884181090999080476}
   - component: {fileID: 6884181090999080451}
   - component: {fileID: 6884181090999080477}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Functional_Engine
   m_TagString: Engine
   m_Icon: {fileID: 0}
