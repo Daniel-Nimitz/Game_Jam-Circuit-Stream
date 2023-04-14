@@ -5,7 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Climber : MonoBehaviour
 {
-    ActionBasedContinuousMoveProvider stickMover;
+    [SerializeField] ActionBasedContinuousMoveProvider stickMover;
+    [SerializeField] CharacterController character;
 
     [SerializeField] ActionBasedController left;
     [SerializeField] ActionBasedController right;
@@ -19,19 +20,18 @@ public class Climber : MonoBehaviour
     [SerializeField] bool Lclimbing = false;
     [SerializeField] bool Rclimbing = false;
 
-    //Vector3 previousPosL;
-    //Vector3 previousPosR;
+    Vector3 previousPosL;
+    Vector3 previousPosR;
 
-    Rigidbody rig;
+    //Rigidbody rig;
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
-        stickMover=GetComponent<ActionBasedContinuousMoveProvider>();
         grabL.enabled = false;
         grabR.enabled = false;
 
-        rig=GetComponent<Rigidbody>();
+        //rig=GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,12 +40,13 @@ public class Climber : MonoBehaviour
 		if (Lclimbing || Rclimbing)
 		{
 			stickMover.enabled = false;
-            rig.useGravity = false;
+            Climb();
+            //rig.useGravity = false;
 		}
 		else
 		{
 			stickMover.enabled = true;
-            rig.useGravity=true;
+            //rig.useGravity=true;
 		}
 	}
 
@@ -54,31 +55,30 @@ public class Climber : MonoBehaviour
     {
         Lclimbing = true;
         rayL.gameObject.SetActive(false);
-        grabL.enabled = true;
-        //previousPosL = left.positionAction.action.ReadValue<Vector3>();
-
+        //grabL.enabled = true;
+        previousPosL = left.positionAction.action.ReadValue<Vector3>();
 	}
     public void DeactivateClimbingL()
     { 
         Lclimbing = false;
         rayL.gameObject.SetActive(true);
-        grabL.enabled = false;
+        //grabL.enabled = false;
     }
     public void ActivateClimbingR()
     {
         Rclimbing = true;
         rayR.gameObject.SetActive(false);
-        grabR.enabled = true;
-        //previousPosR=right.positionAction.action.ReadValue<Vector3>();
+        //grabR.enabled = true;
+        previousPosR=right.positionAction.action.ReadValue<Vector3>();
     }
     public void DeactivateClimbingR()
     {
         Rclimbing = false;
         rayR.gameObject.SetActive(true);
-        grabR.enabled = false;
+        //grabR.enabled = false;
     }
 
-    /*void Climb()
+    void Climb()
     {
         //Check active hand velocities and add them, then move the player according to it
         Vector3 velL = new Vector3(0,0,0);
@@ -86,18 +86,18 @@ public class Climber : MonoBehaviour
         
         if (Lclimbing) 
         {
-			velL=(left.positionAction.action.ReadValue<Vector3>()-previousPosL)/Time.fixedDeltaTime;
+			velL=(left.positionAction.action.ReadValue<Vector3>()-previousPosL)/Time.fixedTime;
 		}
         
         if (Rclimbing)
         {
-			velR=(right.positionAction.action.ReadValue<Vector3>()-previousPosR)/Time.fixedDeltaTime;
+			velR=(right.positionAction.action.ReadValue<Vector3>()-previousPosR)/Time.fixedTime;
 		}
 
-        Vector3 vel=velL+velR;
-        character.Move(transform.rotation*-vel*Time.fixedDeltaTime);
+        Vector3 vel=(velL+velR)*2;
+        character.Move(transform.rotation*-vel*Time.fixedTime);
 
         previousPosL = left.positionAction.action.ReadValue<Vector3>();
         previousPosR = right.positionAction.action.ReadValue<Vector3>();
-    }*/
+    }
 }
