@@ -6,9 +6,9 @@ using System.Collections.Generic;
 public static class XmlLoader
 {
     //turns all the titles in the xml file into an array
-    public static string[] parseXmlFile(TextAsset xmlRawFile)
+    public static XMLdata[] parseXmlFile(TextAsset xmlRawFile)
     {
-        List<string> titles = new List<string>();
+        List<XMLdata> titles = new List<XMLdata>();
 
         string data = xmlRawFile.text;
 
@@ -21,10 +21,22 @@ public static class XmlLoader
         foreach(XmlNode node in nodeList)
         {
             XmlNode title = node.FirstChild;
+            XmlNode id = title.NextSibling;
 
-            titles.Add(title.InnerXml);
+            titles.Add(new XMLdata(title.InnerXml, id.InnerXml));
         }
 
         return titles.ToArray();
+    }
+}
+
+public class XMLdata
+{
+    public string title;
+    public string tag;
+
+    public XMLdata(string title, string tag){
+        this.title = title;
+        this.tag = tag;
     }
 }

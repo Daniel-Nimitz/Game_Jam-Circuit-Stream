@@ -17,10 +17,11 @@ public class TaskManager
             instance = this;
         
         //initiate and populate the tasks
-        string[] data = XmlLoader.parseXmlFile(file);
+        XMLdata[] data = XmlLoader.parseXmlFile(file);
         for(int i = 0; i < data.Length; i++)
         {
-            _tasks.Add(new Task(i, data[i]));
+            XMLdata d = data[i];
+            _tasks.Add(new Task(d.title, d.tag, i));
         }
 
         currentTask = _tasks[_taskIndex];
@@ -69,7 +70,7 @@ public class TaskManager
     {
         foreach(Task t in _tasks)
         {
-            Debug.Log($"{t.title} with id: {t.id}");
+            Debug.Log($"{t.title} with tag: {t.tag}");
         }
     }
 }
@@ -77,15 +78,13 @@ public class TaskManager
 //task object
 public class Task{
 
-    public int id = -1; 
-
+    public int index = -1; 
     public bool isComplete;
+    public string title, tag;
 
-    public string title;
-
-    public Task(int id, string title){
+    public Task(string title, string tag, int index){
         this.title = title;
         isComplete = false;
-        this.id = id;
+        this.tag = tag;
     }
 }

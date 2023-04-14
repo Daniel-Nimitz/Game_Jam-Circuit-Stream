@@ -15,7 +15,7 @@ public class BedSleep : MonoBehaviour
             Debug.Log("Bed Trigger Entered");
             //SceneManager.LoadScene(sceneNameToLoad);
 
-            if(gameManager.CompleteTask(1))
+            if(gameManager.CompleteTask("sleep1"))
             {
                 gameManager.TransitionState("NightTime");
             }

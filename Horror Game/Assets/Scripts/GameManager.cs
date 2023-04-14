@@ -18,12 +18,25 @@ public class GameManager : MonoBehaviour
 
     //completes the current task if valid
     //if valid returns true otherwise returns false
-    public bool CompleteTask(int id){
+    public bool CompleteTask(int index){
         if(_taskManager.IsAllTasksCompleted()){
             Debug.Log("YOU WIN!!!!!");
         }
 
-        if(_taskManager.GetCurrentTask().id == id){
+        if(_taskManager.GetCurrentTask().index == index){
+            _taskManager.CompleteCurrentTask();
+            return true;
+        }
+        return false;
+    }
+
+    //use a tag, I recommend this one!
+    public bool CompleteTask(string tag){
+        if(_taskManager.IsAllTasksCompleted()){
+            Debug.Log("YOU WIN!!!!!");
+        }
+
+        if(_taskManager.GetCurrentTask().tag.Equals(tag)){
             _taskManager.CompleteCurrentTask();
             return true;
         }

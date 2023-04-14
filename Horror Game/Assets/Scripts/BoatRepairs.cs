@@ -40,14 +40,14 @@ public class BoatRepairs : MonoBehaviour
                 Debug.Log("Engine Ran into Boat Trigger");
             break;
             case "Player":
-                gameManager.CompleteTask(4);
+                gameManager.CompleteTask("escape");
             break;
         }
         
 
         if (hasGas && hasCompass && hasEngine) {
             //SceneManager.LoadScene(winSceneToLoad);
-            if( gameManager.CompleteTask(3))
+            if( gameManager.CompleteTask("boat"))
             {
 
             }
