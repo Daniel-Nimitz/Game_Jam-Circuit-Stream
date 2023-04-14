@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TaskManager
 {
     //public instance to be used by other scripts
-    public static TaskManager instance;
-
-    //the list of tasks to keep track of
-    private List<Task> _tasks = new List<Task>(); 
+    public static TaskManager instance; //in instance of this object
+    public Task currentTask; //the current task the player should be working towards
+    private List<Task> _tasks = new List<Task>();  //the list of tasks to keep track of
+    private int _taskIndex = 0; //used to iterate through the tasks in "GetNextTask" method
 
     public TaskManager(TextAsset file)
     {
@@ -19,48 +20,72 @@ public class TaskManager
         string[] data = XmlLoader.parseXmlFile(file);
         for(int i = 0; i < data.Length; i++)
         {
-            _tasks.Add(new Task(data[i]));
+            _tasks.Add(new Task(i, data[i]));
         }
 
+        currentTask = _tasks[_taskIndex];
         //PrintAllTasks();
     }
 
-    //get the next task in the list
-    public Task GetNextActiveTask()
+    //iterates through tasks
+    public Task GetNextTask()
     {
-        foreach(Task t in _tasks)
-        {
-            if(t.isActive && !t.isComplete){
-                return t;
-            }
-        }
-        return null;
+        if(_taskIndex >= _tasks.Count)
+            _taskIndex = 0;
+        else
+            _taskIndex++;
+
+        return _tasks[_taskIndex];
     }
 
-//prints all tasks in the list
+    //returns the current task the player is working towards
+    public Task GetCurrentTask(){
+        if(currentTask == null){
+            Debug.LogWarning("Could not get current task as none was set");
+            return null;
+        }
+
+        return currentTask;
+    }
+
+    //completes the current task and changes it to the next task in the list
+    public void CompleteCurrentTask()
+    {
+        currentTask.isComplete = true;
+        currentTask = GetNextTask();
+    }
+
+    //returns true if all tasks have been completed else return false
+    public bool IsAllTasksCompleted(){
+        foreach(Task t in _tasks){
+            if(!t.isComplete)
+                return false;
+        }
+        return true;
+    }
+
+    //prints all tasks in the list, used for debugging
     void PrintAllTasks()
     {
         foreach(Task t in _tasks)
         {
-            Debug.Log(t.title);
+            Debug.Log($"{t.title} with id: {t.id}");
         }
     }
 }
 
+//task object
 public class Task{
 
-    public bool isActive, isComplete;
+    public int id = -1; 
+
+    public bool isComplete;
 
     public string title;
 
-    public Task(string title, bool isActive = true){
+    public Task(int id, string title){
         this.title = title;
         isComplete = false;
-        this.isActive = isActive;
-    }
-
-    public void Complete()
-    {
-        isComplete = true;
+        this.id = id;
     }
 }

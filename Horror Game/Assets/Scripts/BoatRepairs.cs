@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BoatRepairs : MonoBehaviour
 {
+    GameManager gameManager = GameManager.instance;
 
     public bool hasGas;
     public bool hasCompass;
@@ -18,30 +19,38 @@ public class BoatRepairs : MonoBehaviour
     public AudioClip boatEngineSoundClip;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Gas"))
-        {
-            hasGas = true;
-            Destroy(other.gameObject);
-            boatPropellerAnimator.enabled = true;
-            boatEngineSource.PlayOneShot(boatEngineSoundClip);
-            Debug.Log("Gas Can Ran into Boat Trigger");
-        }
-        if (other.CompareTag("Compass")) {
-            hasCompass = true;
-            Destroy(other.gameObject);
-            Debug.Log("Compass Ran Into Boat Trigger");
-        }
-        if(other.CompareTag("Engine")) {
-            hasEngine = true;
-            Destroy(other.gameObject);
-            engineOnBoat.SetActive(true);
-            Debug.Log("Engine Ran into Boat Trigger");
-
+        switch(other.tag){
+            case "Gas":
+            
+                hasGas = true;
+                Destroy(other.gameObject);
+                boatPropellerAnimator.enabled = true;
+                boatEngineSource.PlayOneShot(boatEngineSoundClip);
+                Debug.Log("Gas Can Ran into Boat Trigger");
+            break;
+            case "Compass":
+                hasCompass = true;
+                Destroy(other.gameObject);
+                Debug.Log("Compass Ran Into Boat Trigger");
+            break;
+            case "Engine":
+                hasEngine = true;
+                Destroy(other.gameObject);
+                engineOnBoat.SetActive(true);
+                Debug.Log("Engine Ran into Boat Trigger");
+            break;
+            case "Player":
+                gameManager.CompleteTask(4);
+            break;
         }
         
 
         if (hasGas && hasCompass && hasEngine) {
-            SceneManager.LoadScene(winSceneToLoad);
+            //SceneManager.LoadScene(winSceneToLoad);
+            if( gameManager.CompleteTask(3))
+            {
+
+            }
         }
 
     }
