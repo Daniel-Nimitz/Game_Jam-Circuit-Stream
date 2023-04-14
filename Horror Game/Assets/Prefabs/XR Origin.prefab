@@ -1622,9 +1622,10 @@ GameObject:
   - component: {fileID: 8858286160286659950}
   - component: {fileID: 8858286160286659951}
   - component: {fileID: 8858286160286659947}
+  - component: {fileID: 1675106741359104338}
   m_Layer: 6
   m_Name: XR Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1816,6 +1817,20 @@ MonoBehaviour:
   grabR: {fileID: 8858286159025595237}
   Lclimbing: 0
   Rclimbing: 0
+--- !u!136 &1675106741359104338
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858286160286659924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.28687078
+  m_Height: 1.7366492
+  m_Direction: 1
+  m_Center: {x: -0.067546315, y: 0.8855993, z: 0.14558291}
 --- !u!1 &8858286160447672411
 GameObject:
   m_ObjectHideFlags: 0
