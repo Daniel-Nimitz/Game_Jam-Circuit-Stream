@@ -65,4 +65,9 @@ public class GameManager : MonoBehaviour
             RenderSettings.skybox = nightSkyboxMaterial;
 
     }
+
+    public void TeleportPlayer(Transform transform)
+    {
+        GameObject.FindWithTag("Player").transform.position = transform.position;
+    }
 }
