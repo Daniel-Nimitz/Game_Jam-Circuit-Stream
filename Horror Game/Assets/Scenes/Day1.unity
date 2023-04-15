@@ -6985,6 +6985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water Specular Mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 4251279788634018032, guid: be3a74ee4c9d4d899462b72a41f62728, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4ae0336883b66144a3c93709a4cb300, type: 2}
     - target: {fileID: 6529415330526082146, guid: be3a74ee4c9d4d899462b72a41f62728, type: 3}
       propertyPath: m_RootOrder
       value: 8
