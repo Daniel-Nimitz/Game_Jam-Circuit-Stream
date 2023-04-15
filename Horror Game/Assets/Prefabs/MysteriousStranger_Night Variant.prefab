@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7910776203688183365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Quick, get out to the boat!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: For the boat you need
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Keys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: Gas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447578, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447579, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_Name
+      value: MysteriousStranger_Night
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874566115481447582, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 80f0d1af9e1a20448abdc8eb6e666863, type: 3}
