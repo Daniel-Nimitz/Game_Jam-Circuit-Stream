@@ -2928,6 +2928,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1408071175644239708, guid: ec5241c2ebcce454d93b2b2e54c410b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2901659145232806250, guid: ec5241c2ebcce454d93b2b2e54c410b5, type: 3}
       propertyPath: m_Name
       value: XR
