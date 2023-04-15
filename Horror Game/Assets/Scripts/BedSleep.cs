@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class BedSleep : MonoBehaviour
 {
-    GameManager gameManager = GameManager.instance;
+    GameManager gameManager;
+
+    private void Start() {
+        gameManager = GameManager.instance;
+    }
 
     //public string sceneNameToLoad;
     private void OnTriggerEnter(Collider other)

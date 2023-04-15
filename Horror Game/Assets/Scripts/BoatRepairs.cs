@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BoatRepairs : MonoBehaviour
 {
-    GameManager gameManager = GameManager.instance;
+    GameManager gameManager;
 
     public bool hasGas;
     public bool hasCompass;
@@ -17,6 +17,11 @@ public class BoatRepairs : MonoBehaviour
     public Animator boatPropellerAnimator;
     public AudioSource boatEngineSource;
     public AudioClip boatEngineSoundClip;
+
+    private void Start() {
+        gameManager = GameManager.instance;
+    }   
+
     private void OnTriggerEnter(Collider other)
     {
         switch(other.tag){

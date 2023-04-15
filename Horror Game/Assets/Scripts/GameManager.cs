@@ -3,17 +3,33 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public TextAsset taskRawXmlFile; //the XML file used to add tasks
-    public static GameManager instance; //an instance of this class
+
+    public static GameManager instance {get; private set;}//an instance of this class
+    
     public Material nightSkyboxMaterial; //the material used to turn the sky into night
     TaskManager _taskManager;// a reference to the task manager class 
-    // Start is called before the first frame update
+    
+    private void Awake() {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Start()
     {
+        _taskManager = new TaskManager(taskRawXmlFile);
+    }
+
+    public GameManager getInstance(){
         if(instance != this)
             instance = this;
-
-        _taskManager = new TaskManager(taskRawXmlFile);
-
+        return instance;
     }
 
     //completes the current task if valid

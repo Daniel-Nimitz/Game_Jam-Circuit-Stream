@@ -6,11 +6,16 @@ using UnityEngine;
 
 public class PlayerTaskTrigger : MonoBehaviour
 {
-    GameManager gameManager = GameManager.instance;
+    GameManager gameManager;
 
     public bool useIndex = false;
     public string taskTag;
     public int taskIndex;
+
+    private void Start() {
+        if(gameManager == null)
+            gameManager = GameManager.instance;
+    }
 
     void OnTriggerEnter(Collider other)
     {
