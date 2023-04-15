@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class BedSleep : MonoBehaviour
 {
     GameManager gameManager;
-    public GameObject audioManager;
+    AudioSource audioSource;
+    public AudioManager audioManager;
+    public AudioClip nightMusic;
 
     private void Start() {
         gameManager = GameManager.instance;
+        audioSource = audioManager.GetComponent<AudioSource>();
     }
 
     //public string sceneNameToLoad;
@@ -24,6 +27,7 @@ public class BedSleep : MonoBehaviour
             {
                 gameManager.TransitionState("NightTime");
                 //Add audio clip switching for background music in audio manager
+                audioManager.ChangeAudio(nightMusic);
             }
         }
         

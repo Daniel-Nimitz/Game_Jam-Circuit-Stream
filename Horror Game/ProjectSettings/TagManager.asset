@@ -7,6 +7,7 @@ TagManager:
   - Gas
   - Compass
   - Engine
+  - Audio Manager
   layers:
   - Default
   - TransparentFX
