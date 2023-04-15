@@ -24,7 +24,7 @@ public class TaskManager
         currentTask = _tasks[_taskIndex];
         //PrintAllTasks();
 
-        Debug.Log($"current task is {currentTask.title}");
+        //Debug.Log($"current task is {currentTask.title}");
     }
 
     //iterates through tasks
@@ -51,10 +51,10 @@ public class TaskManager
     //completes the current task and changes it to the next task in the list
     public void CompleteCurrentTask()
     {
-        Debug.Log($"completed{currentTask.title}");
+        //Debug.Log($"completed{currentTask.title}");
         currentTask.isComplete = true;
         currentTask = GetNextTask();
-        Debug.Log($"{currentTask.title} is now the current task");
+        //Debug.Log($"{currentTask.title} is now the current task");
     }
 
     //returns true if all tasks have been completed else return false

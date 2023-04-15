@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     //if valid returns true otherwise returns false
     public bool CompleteTask(int index){
         if(_taskManager.IsAllTasksCompleted()){
-            Debug.Log("YOU WIN!!!!!");
+            SceneManager.LoadScene("Ending");
         }
 
         if(_taskManager.GetCurrentTask().index == index){
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     //use a tag, I recommend this one!
     public bool CompleteTask(string tag){
         if(_taskManager.IsAllTasksCompleted()){
-            Debug.Log("YOU WIN!!!!!");
+            SceneManager.LoadScene("Ending");
         }
 
         if(_taskManager.GetCurrentTask().tag.Equals(tag)){
