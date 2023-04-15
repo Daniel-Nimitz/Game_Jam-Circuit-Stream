@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public TextAsset taskRawXmlFile; //the XML file used to add tasks
 
     public static GameManager instance {get; private set;}//an instance of this class
+
     
     public Material nightSkyboxMaterial; //the material used to turn the sky into night
     TaskManager _taskManager;// a reference to the task manager class 
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
     
     void Start()
@@ -80,6 +83,7 @@ public class GameManager : MonoBehaviour
         //a special clause to turn the skybox into the nighttime skybox
         if(state == "NightTime")
             RenderSettings.skybox = nightSkyboxMaterial;
+
 
     }
 

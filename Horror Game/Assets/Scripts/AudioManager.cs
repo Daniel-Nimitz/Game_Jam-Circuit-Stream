@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
 
+    public AudioClip nightMusic;
+
 
     public void ChangeAudio(AudioClip soundToPlay) {
 
