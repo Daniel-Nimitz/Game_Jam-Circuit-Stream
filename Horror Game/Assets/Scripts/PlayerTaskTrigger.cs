@@ -6,13 +6,24 @@ using UnityEngine;
 
 public class PlayerTaskTrigger : MonoBehaviour
 {
-    GameManager gameManager = GameManager.instance;
-    public int taskID;
+    GameManager gameManager;
+
+    public bool useIndex = false;
+    public string taskTag;
+    public int taskIndex;
+
+    private void Start() {
+        if(gameManager == null)
+            gameManager = GameManager.instance;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player")){
-            gameManager.CompleteTask(taskID);
+            if(useIndex)
+                gameManager.CompleteTask(taskIndex);
+            else
+                gameManager.CompleteTask(taskTag);
         }
     }
 }

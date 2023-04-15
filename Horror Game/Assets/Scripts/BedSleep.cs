@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class BedSleep : MonoBehaviour
 {
-    GameManager gameManager = GameManager.instance;
+    GameManager gameManager;
+
+    private void Start() {
+        gameManager = GameManager.instance;
+    }
 
     //public string sceneNameToLoad;
     private void OnTriggerEnter(Collider other)
@@ -15,7 +19,7 @@ public class BedSleep : MonoBehaviour
             Debug.Log("Bed Trigger Entered");
             //SceneManager.LoadScene(sceneNameToLoad);
 
-            if(gameManager.CompleteTask(1))
+            if(gameManager.CompleteTask("sleep1"))
             {
                 gameManager.TransitionState("NightTime");
             }

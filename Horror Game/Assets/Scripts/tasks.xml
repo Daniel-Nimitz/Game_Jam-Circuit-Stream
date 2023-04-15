@@ -1,17 +1,22 @@
 <Tasks>
     <Task>
         <Title>Bring Luggage to your Hotel room</Title>
+        <id>luggage</id>
     </Task>
     <Task>
         <Title>Go to Sleep</Title>
+        <id>sleep1</id>
     </Task>
     <Task>
         <Title>Go to the port and find a way to escape</Title>
+        <id>port</id>
     </Task>
     <Task>
         <Title>Gather supplies for the boat</Title>
+        <id>boat</id>
     </Task>
     <Task>
         <Title>Get on the boat shinji!</Title>
+        <id>escape</id>
     </Task>
 </Tasks>

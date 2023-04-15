@@ -6,25 +6,25 @@ using UnityEngine.Events;
 public class TaskManager
 {
     //public instance to be used by other scripts
-    public static TaskManager instance; //in instance of this object
     public Task currentTask; //the current task the player should be working towards
     private List<Task> _tasks = new List<Task>();  //the list of tasks to keep track of
     private int _taskIndex = 0; //used to iterate through the tasks in "GetNextTask" method
 
     public TaskManager(TextAsset file)
     {
-        if(instance == null || instance != this)
-            instance = this;
         
         //initiate and populate the tasks
-        string[] data = XmlLoader.parseXmlFile(file);
+        XMLdata[] data = XmlLoader.parseXmlFile(file);
         for(int i = 0; i < data.Length; i++)
         {
-            _tasks.Add(new Task(i, data[i]));
+            XMLdata d = data[i];
+            _tasks.Add(new Task(d.title, d.tag, i));
         }
 
         currentTask = _tasks[_taskIndex];
         //PrintAllTasks();
+
+        Debug.Log($"current task is {currentTask.title}");
     }
 
     //iterates through tasks
@@ -51,8 +51,10 @@ public class TaskManager
     //completes the current task and changes it to the next task in the list
     public void CompleteCurrentTask()
     {
+        Debug.Log($"completed{currentTask.title}");
         currentTask.isComplete = true;
         currentTask = GetNextTask();
+        Debug.Log($"{currentTask.title} is now the current task");
     }
 
     //returns true if all tasks have been completed else return false
@@ -69,7 +71,7 @@ public class TaskManager
     {
         foreach(Task t in _tasks)
         {
-            Debug.Log($"{t.title} with id: {t.id}");
+            Debug.Log($"{t.title} with tag: {t.tag}");
         }
     }
 }
@@ -77,15 +79,13 @@ public class TaskManager
 //task object
 public class Task{
 
-    public int id = -1; 
-
+    public int index = -1; 
     public bool isComplete;
+    public string title, tag;
 
-    public string title;
-
-    public Task(int id, string title){
+    public Task(string title, string tag, int index){
         this.title = title;
         isComplete = false;
-        this.id = id;
+        this.tag = tag;
     }
 }
