@@ -39,14 +39,16 @@ public class Climber : MonoBehaviour
     {
 		if (Lclimbing || Rclimbing)
 		{
-			stickMover.enabled = false;
+			stickMover.moveSpeed=0;
+            stickMover.useGravity=false;
             Climb();
             //rig.useGravity = false;
 		}
 		else
 		{
-			stickMover.enabled = true;
-            //rig.useGravity=true;
+			stickMover.moveSpeed = 5;
+			stickMover.useGravity = true;
+			//rig.useGravity=true;
 		}
 	}
 

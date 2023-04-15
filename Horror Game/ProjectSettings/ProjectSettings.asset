@@ -135,7 +135,10 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 5041ab49db81dda4680fa1042aa6bce6, type: 2}
+  - {fileID: -6458676401869320937, guid: 560d2ae74e07f734f9c9cf3c981fc8a4, type: 2}
+  - {fileID: 3796368558861938116, guid: e2a63fd060524324ab2827c9d95f5d7d, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -427,7 +430,7 @@ PlayerSettings:
     m_Automatic: 1
   - m_BuildTarget: WindowsStandaloneSupport
     m_APIs: 02000000
-    m_Automatic: 0
+    m_Automatic: 1
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 0
@@ -723,7 +726,8 @@ PlayerSettings:
     Windows Store Apps: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
     EmbeddedLinux: 1
