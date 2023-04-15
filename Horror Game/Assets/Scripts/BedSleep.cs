@@ -9,6 +9,7 @@ public class BedSleep : MonoBehaviour
     AudioSource audioSource;
     public AudioManager audioManager;
     public AudioClip nightMusic;
+    
 
     private void Start() {
         gameManager = GameManager.instance;
@@ -28,6 +29,7 @@ public class BedSleep : MonoBehaviour
                 gameManager.TransitionState("NightTime");
                 //Add audio clip switching for background music in audio manager
                 audioManager.ChangeAudio(audioManager.nightMusic);
+                
             }
         }
         
